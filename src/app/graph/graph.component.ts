@@ -165,7 +165,6 @@ export class GraphComponent implements OnInit {
     values.forEach((value, i) => {
       resultArray.push([this.dates[i], value]);
     });
-    console.log(resultArray);
     return resultArray;
   }
 
