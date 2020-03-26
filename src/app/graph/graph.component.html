@@ -1,0 +1,11 @@
+<div class="main">
+  <div id="life-score-graph" style="width: 800px;height:500px;"></div>
+  <br>
+  <button (click)="filter(jsonData.value)" color="primary" mat-raised-button type="submit">Generate</button>
+  <br>
+  <mat-form-field appearance="fill" class="area">
+    <mat-label>Paste your data here:</mat-label>
+    <textarea #jsonData matInput></textarea>
+  </mat-form-field>
+  <br>
+</div>
