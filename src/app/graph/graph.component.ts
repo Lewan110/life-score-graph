@@ -69,7 +69,8 @@ export class GraphComponent implements OnInit {
         {
           name: 'Happiness',
           type: 'bar',
-          data: this.happinessValues
+          data: this.happinessValues,
+          color: 'dodgerBlue'
         },
         {
           name: 'Love',
@@ -79,7 +80,10 @@ export class GraphComponent implements OnInit {
         {
           name: 'Life Score',
           type: 'line',
-          data: this.lifeScoreValues
+          data: this.lifeScoreValues,
+          lineStyle: {
+            width: 5
+          },
         }
       ]
     };
@@ -89,8 +93,17 @@ export class GraphComponent implements OnInit {
   private generateGraph() {
     this.lifeScoreGraph = echarts.init(document.getElementById('life-score-graph'));
     const option = {
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'cross',
+          crossStyle: {
+            color: '#999'
+          }
+        }
+      },
       legend: {
-        data: ['Life Score', 'Happiness', 'Love']
+        data: ['Happiness', 'Love', 'Life Score']
       },
       xAxis: {
         type: 'time',
@@ -100,21 +113,6 @@ export class GraphComponent implements OnInit {
         type: 'value',
         boundaryGap: [0, '30%']
       },
-      visualMap: {
-        type: 'piecewise',
-        show: false,
-        dimension: 0,
-        seriesIndex: 0,
-        pieces: [{
-          gt: 1,
-          lt: 3,
-          color: 'rgba(0, 180, 0, 0.5)'
-        }, {
-          gt: 5,
-          lt: 7,
-          color: 'rgba(0, 180, 0, 0.5)'
-        }]
-      },
       series: [
         {
           min: 0,
@@ -123,8 +121,9 @@ export class GraphComponent implements OnInit {
           type: 'line',
           smooth: 0.6,
           symbol: 'none',
+          color: 'dimGray',
           lineStyle: {
-            color: 'green',
+            color: 'dimGray',
             width: 5
           },
           data: this.updateValuesWithDates(this.lifeScoreValues)
@@ -136,8 +135,9 @@ export class GraphComponent implements OnInit {
           type: 'line',
           smooth: 0.6,
           symbol: 'none',
+          color: 'dodgerBlue',
           lineStyle: {
-            color: 'blue',
+            color: 'dodgerBlue',
             width: 5
           },
           data: this.updateValuesWithDates(this.happinessValues)
@@ -148,6 +148,7 @@ export class GraphComponent implements OnInit {
           name: 'Love',
           type: 'line',
           smooth: 0.6,
+          color: 'red',
           symbol: 'none',
           lineStyle: {
             color: 'red',

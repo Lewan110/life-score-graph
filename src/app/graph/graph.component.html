@@ -1,12 +1,9 @@
 <div class="main">
-  <br>
   <mat-form-field appearance="fill" class="area">
-    <mat-label>Paste your data here:</mat-label>
+    <mat-label>Paste your data here</mat-label>
     <textarea #jsonData matInput></textarea>
   </mat-form-field>
-  <br>
   <button (click)="fetchData(jsonData.value)" color="primary" mat-raised-button type="submit">Generate</button>
-  <br>
-  <div id="life-score-graph" style="width: 800px;height:500px;"></div>
-  <div id="mixed-graph" style="width: 800px;height:500px;"></div>
+  <div class="graph" id="life-score-graph"></div>
+  <div class="graph" id="mixed-graph"></div>
 </div>
