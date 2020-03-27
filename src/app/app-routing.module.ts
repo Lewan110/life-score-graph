@@ -5,6 +5,7 @@ import {InfoComponent} from './info/info.component';
 
 
 const routes: Routes = [
+  {path: '', component: GraphComponent},
   {path: 'graph', component: GraphComponent},
   {path: 'info', component: InfoComponent},
 ];
